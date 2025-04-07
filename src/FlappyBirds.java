@@ -21,7 +21,7 @@ public class FlappyBirds extends JPanel implements ActionListener, KeyListener {
 
     int pipeX = boardwidth;
     int pipeY = 0;
-    int pipeWidth = 34;
+    int pipeWidth = 64;
     int pipeHeight = 512;
 
     class Bird {
@@ -36,13 +36,29 @@ public class FlappyBirds extends JPanel implements ActionListener, KeyListener {
         }
     }
 
+    class Pipe {
+        int x = pipeX;
+        int y = pipeY;
+        int w = pipeWidth;
+        int h = pipeHeight;
+        boolean passed = false;
+        Image img;
+
+        Pipe(Image img) {
+            this.img = img;
+        }
+    }
+
     // game logic
     Bird bird;
     int velocityX = -4;
     int velocityY = -9;
     int gravity = 1;
 
+    ArrayList<Pipe> pipes;
+
     Timer gameLoop;
+    Timer placePipesTimer;
 
     FlappyBirds() {
 
@@ -60,6 +76,15 @@ public class FlappyBirds extends JPanel implements ActionListener, KeyListener {
         bottomPipeImg = new ImageIcon(getClass().getResource("./bottompipe.png")).getImage();
 
         bird = new Bird(birdImg);
+        pipes = new ArrayList<>();
+
+        placePipesTimer = new Timer(1500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                placePipes();
+            }
+        });
+        placePipesTimer.start();
 
         gameLoop = new Timer(1000 / 60, this);
         gameLoop.start();
@@ -71,6 +96,17 @@ public class FlappyBirds extends JPanel implements ActionListener, KeyListener {
         bird.y += velocityY;
         // bird.y = (bird.y < 0) ? 0 : bird.y;
         bird.y = Math.max(bird.y, 0);
+
+        // pipe
+        for (int i = 0; i < pipes.size(); i++) {
+            Pipe pipe = pipes.get(i);
+            pipe.x += velocityX;
+        }
+    }
+
+    public void placePipes() {
+        Pipe topPipe = new Pipe(topPipeImg);
+        pipes.add(topPipe);
     }
 
     public void paintComponent(Graphics g) {
@@ -79,11 +115,17 @@ public class FlappyBirds extends JPanel implements ActionListener, KeyListener {
     }
 
     public void draw(Graphics g) {
-        // baclground
+        // background
         g.drawImage(backgroundImg, 0, 0, boardwidth, boardheight, null);
 
         // bird
         g.drawImage(birdImg, bird.x, bird.y, bird.w, bird.h, null);
+
+        // toppipe
+        for (int i = 0; i < pipes.size(); i++) {
+            Pipe pipe = pipes.get(i);
+            g.drawImage(pipe.img, pipe.x, pipe.y, pipe.w, pipe.h, null);
+        }
     }
 
     @Override
