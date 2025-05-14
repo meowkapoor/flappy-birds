@@ -28,7 +28,11 @@ A classic Flappy Bird clone built entirely in **Java (Swing)**. Designed with ex
 
 | Gameplay |
 |---------|
+<<<<<<< HEAD
 | ![Gameplay](img/gameplay.png) |
+=======
+| ![Gameplay](images/gameplay.png) |
+>>>>>>> dc4691efb76ed60dd067d635c8c5d362f39acaff
 
 ---
 
@@ -44,4 +48,8 @@ A classic Flappy Bird clone built entirely in **Java (Swing)**. Designed with ex
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/meowkapoor/flappy-birds.git
+<<<<<<< HEAD
    cd flappy-birds
+=======
+   cd flappy-birds
+>>>>>>> dc4691efb76ed60dd067d635c8c5d362f39acaff
