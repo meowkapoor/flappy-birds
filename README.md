@@ -1,18 +1,47 @@
-## Getting Started
+# 🐦 FlappyBird-Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A classic Flappy Bird clone built entirely in **Java (Swing)**. Designed with expandability in mind — add new maps, birds, leaderboards, and more. Perfect for learning game development fundamentals in Java.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## 🚀 Features
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- 🎮 Classic Flappy Bird gameplay
+- 🏆 Personal Best score tracking
+- 📊 Offline leaderboard support
+- 🔊 Integrated sound effects
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## 🧠 Planned Features
 
-## Dependency Management
+- 🌐 Online leaderboard using **Spring Boot REST API**
+- 🔐 User login & authentication system
+- 🗺️ Multiple map themes (day/night)
+- 🐣 Unlockable birds skins and backgrounds
+- 💀 Multiple difficulty modes (Easy, Normal, Hard)
+- 🖼️ Dynamic UI themes
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+---
+
+## 📸 Screenshots
+
+| Gameplay |
+|---------|
+| ![Gameplay](images/gameplay.png) |
+
+---
+
+## 🛠️ Requirements
+
+- Java Development Kit (JDK) 17 or later
+- Java IDE (IntelliJ IDEA, Eclipse, NetBeans, etc.)
+
+---
+
+## 🧪 How to Run
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/meowkapoor/flappy-birds.git
+   cd flappy-birds
